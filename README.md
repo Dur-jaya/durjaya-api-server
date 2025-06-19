@@ -46,4 +46,17 @@ durjaya-api-server/
 ├── package.json
 └── README.md
 
+##🔁 API Endpoints
+| Method | Endpoint         | Description             |
+| ------ | ---------------- | ----------------------- |
+| GET    | `/api/tasks`     | Get all tasks           |
+| POST   | `/api/tasks`     | Create a new task       |
+| PUT    | `/api/tasks/:id` | Update an existing task |
+| DELETE | `/api/tasks/:id` | Delete a task           |
+
+
+
+📌 Notes
+This app is built to run locally and uses a local MongoDB instance
+You can test APIs using VS Code REST Client or Postman
 
