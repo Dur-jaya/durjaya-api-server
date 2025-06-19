@@ -1,0 +1,26 @@
+### 🟢 Create a New Task (POST)
+POST http://localhost:5000/api/tasks
+Content-Type: application/json
+
+{
+  "title": "First task from REST",
+  "completed": false
+}
+
+### 📋 Get All Tasks (GET)
+GET http://localhost:5000/api/tasks
+
+### 🔍 Get Task by ID (GET)
+GET http://localhost:5000/api/tasks/685441a01ba58854333e92e4
+
+### ✏️ Update Task (PUT)
+PUT http://localhost:5000/api/tasks/685441a01ba58854333e92e4
+Content-Type: application/json
+
+{
+  "title": "Updated Task Title",
+  "completed": true
+}
+
+### ❌ Delete Task (DELETE)
+DELETE http://localhost:5000/api/tasks/685441a01ba58854333e92e4

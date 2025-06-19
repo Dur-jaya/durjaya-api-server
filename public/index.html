@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Durjaya's Task Manager</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 Durjaya's Task Manager</h1>
+
+    <div class="task-stats">
+      <span id="total-tasks">Total: 0</span>
+      <span id="completed-tasks">Completed: 0</span>
+    </div>
+
+    <form id="task-form">
+      <input type="text" id="task-title" placeholder="Enter task title" required />
+      <button type="submit">Add Task</button>
+    </form>
+
+    <ul id="task-list"></ul>
+  </div>
+
+  <script>
+    const form = document.getElementById('task-form');
+    const titleInput = document.getElementById('task-title');
+    const taskList = document.getElementById('task-list');
+    const totalTasks = document.getElementById('total-tasks');
+    const completedTasks = document.getElementById('completed-tasks');
+
+    const loadTasks = async () => {
+      const res = await fetch('/api/tasks');
+      const tasks = await res.json();
+      renderTasks(tasks);
+    };
+
+    const renderTasks = (tasks) => {
+      taskList.innerHTML = '';
+      let completed = 0;
+      tasks.forEach(task => {
+        const li = document.createElement('li');
+        li.className = 'fade-in';
+        li.innerHTML = `
+          <span class="${task.completed ? 'done' : ''}" onclick="toggleTask('${task._id}', ${task.completed})">
+            ${task.title}
+          </span>
+          <button onclick="deleteTask('${task._id}')">❌</button>
+        `;
+        taskList.appendChild(li);
+        if (task.completed) completed++;
+      });
+
+      totalTasks.textContent = `Total: ${tasks.length}`;
+      completedTasks.textContent = `Completed: ${completed}`;
+    };
+
+    form.onsubmit = async (e) => {
+      e.preventDefault();
+      const title = titleInput.value;
+      const res = await fetch('/api/tasks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title })
+      });
+      titleInput.value = '';
+      loadTasks();
+    };
+
+    window.deleteTask = async (id) => {
+      await fetch('/api/tasks/' + id, { method: 'DELETE' });
+      loadTasks();
+    };
+
+    window.toggleTask = async (id, current) => {
+      await fetch('/api/tasks/' + id, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ completed: !current })
+      });
+      loadTasks();
+    };
+
+    loadTasks();
+  </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  width: 100%;
+  max-width: 600px;
+  backdrop-filter: blur(10px);
+}
+
+h1 {
+  text-align: center;
+  color: #78c4f5;
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+input {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.75rem 1.2rem;
+  background: #78c4f5;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li.completed span {
+  text-decoration: line-through;
+  color: #bbb;
+}
+
+.actions button {
+  margin-left: 0.5rem;
+  background: #4dd0e1;
+  color: #000;
+}

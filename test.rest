@@ -1,0 +1,14 @@
+### ✅ Get all tasks
+GET http://localhost:5000/api/tasks
+
+### ➕ Create a new task
+Content-Type: application/json
+
+{
+  "title": "First task from REST",
+  "description": "This was created via VS Code REST Client",
+  "completed": false
+}
+
+### ❌ Delete a task (replace TASK_ID)
+DELETE http://localhost:5000/api/tasks/TASK_ID
