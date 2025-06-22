@@ -7,8 +7,7 @@ A full-stack Task Management app built with **Express.js**, **MongoDB**, and a b
 ![GitHub last commit](https://img.shields.io/github/last-commit/Dur-jaya/durjaya-api-server)
 
 ---
-![App Preview](./<img width="634" alt="preview" src="https://github.com/user-attachments/assets/f25c057e-170c-4b73-813b-ff134bac7d1e" />
-)
+
 ## 🌟 Features
 
 - 🧠 Custom RESTful API with 4 CRUD endpoints
@@ -46,17 +45,19 @@ durjaya-api-server/
 ├── package.json
 └── README.md
 
-##🔁 API Endpoints
+---
+
+## 🔁 API Endpoints
+
 | Method | Endpoint         | Description             |
-| ------ | ---------------- | ----------------------- |
+|--------|------------------|-------------------------|
 | GET    | `/api/tasks`     | Get all tasks           |
 | POST   | `/api/tasks`     | Create a new task       |
 | PUT    | `/api/tasks/:id` | Update an existing task |
 | DELETE | `/api/tasks/:id` | Delete a task           |
 
+---
 
-
-📌 Notes
-This app is built to run locally and uses a local MongoDB instance
-You can test APIs using VS Code REST Client or Postman
-
+📌 **Notes**  
+This app is built to run locally and uses a local MongoDB instance.  
+You can test APIs using VS Code REST Client or Postman.
